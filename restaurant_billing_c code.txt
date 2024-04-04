@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct MENU
+{
+      int idli;
+      int dosa;
+      int water;
+      int tea;
+      int idli_charge;
+      int dosa_charge;
+      int water_charge;
+      int tea_charge;
+      int bill;
+      int bill_counter;
+      int income_per_day;
+      int total;
+}menu;
+struct order_history
+{
+      int idli;
+      int dosa;
+      int water;
+      int tea; 
+    
+}orders;
+struct order_history *order_history_ptr;
+order_history_ptr = (struct order_history *) malloc(10 * sizeof (struct order_history));
+
+int main()
+{
+    
+    int i;
+    printf("\nwelcome\n ");
+    while(1)
+    {
+        int ch;
+        printf("\n order please \n ");
+         scanf("%d",&ch);
+        switch(ch)
+        {
+            int bill_counter;
+            
+          case 1:    printf(" idli:\n ");
+                     scanf("%d",&menu.idli);
+                     printf("\n next  ");
+                     break;
+                     
+          case 2:    printf("dosa: \n ");
+                     scanf("%d",&menu.dosa);
+                     printf("\n next  ");
+                     break;
+         
+          case 3:    printf("water bottles:\n ");
+                     scanf("%d",&menu.water);
+                     printf("\n next  ");
+                     break;
+                     
+          case 4:    printf("tea: \n ");
+                     scanf("%d",&menu.tea);
+                     printf("\n next  ");
+                     break;                  
+                    
+          case 5:    menu.idli_charge  = 20*menu.idli;
+                     menu.dosa_charge  = 40*menu.dosa;
+                     menu.water_charge = 15*menu.water;
+                     menu.tea_charge   = 10*menu.tea;
+                     menu.bill = menu.idli_charge + menu.dosa_charge + menu.water_charge + menu.tea_charge; 
+                     menu.total = menu.total+menu.bill;
+                     printf ("\n given order is:\n");
+                     printf("\n==============================\n");
+                     printf("\n==============================\n");
+                     printf("\nidli          : %d\n", menu.idli);
+                     printf("\ndosa          : %d\n", menu.dosa);
+                     printf("\nwater bottles : %d\n", menu.water);
+                     printf("\ntea           : %d\n", menu.tea);
+                     printf("\n==============================\n");
+                     printf("\n==============================\n");
+                     printf("Your Bill is :\t%d",menu.bill);
+                     printf("\nPlease pay in cash. Have a nice day\n "); 
+                     orders = menu;// cumulative details to be added.
+                     bill_counter++;
+                     
+                     
+                     break;
+                    
+          case 6:    printf("cancelled. start next bill\n"); 
+                     menu.idli  = 0;
+                     menu.dosa  = 0;
+                     menu.water = 0;
+                     menu.tea   = 0;
+                     break;
+                    
+           case 7:   if(bill_counter>0)
+                     {  
+                         bill_counter=0;
+                         printf("total bills per the day\n %d", menu.total);  
+                     }
+                     break;
+          default:    // printf("have a nice day\n");
+                      printf(" order please\n ");
+                      break;
+        }
+   
+   
+    }
+   
+  return 0;
+}
